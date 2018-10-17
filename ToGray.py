@@ -14,9 +14,9 @@ def selectPath():
 
 def getPath():
     global p
-    p = text.get()
+    p = text.get()    #获取文本框中的路径
     if not p:
-        p = os.getcwd()
+        p = os.getcwd()    #若文本框为空，则设置为当前路径
         print('已自动为您选择当前目录！(%s)\n'%p)
     root.destroy()
 
@@ -30,7 +30,7 @@ root = Tk()
 root.title('选择文件夹')
 path = StringVar()
 path.set(os.getcwd())
-root.protocol("WM_DELETE_WINDOW", on_closing)
+root.protocol("WM_DELETE_WINDOW", on_closing)    #关闭tk窗口时执行on_closing
 
 Label(root,text = "目标路径:").grid(row = 0, column = 0)
 text = Entry(root, textvariable = path)
